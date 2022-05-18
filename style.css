@@ -32,26 +32,25 @@
     height: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /*transformприменяет 2D- или 3D-преобразование к элементу. Это свойство позволяет вращать, масштабировать, перемещать, наклонять и т. д. элементы. */
+    transform: translate(
+        -50%,
+        -50%
+    ); /*transformприменяет 2D- или 3D-преобразование к элементу. Это свойство позволяет вращать, масштабировать, перемещать, наклонять и т. д. элементы. */
 }
 
-
-
-.time-display{
+.time-display {
     position: absolute;
     bottom: 10%; /*Свойство bottomвлияет на вертикальное положение позиционируемого элемента.  */
     color: white;
     font-size: 50%;
-
 }
 
-
 video {
-   position: fixed;
-   top: 0%;
-   left: 0%;
-   width: 100%;
-   z-index: -10; /* поместит или изображ или видео за всё остальное*/
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: -10; /* поместит или изображ или видео за всё остальное*/
 }
 
 .time-select button,
@@ -60,6 +59,34 @@ video {
     width: 30%;
     height: 10%;
     background: none; /* убрала уродливый фон там где кнопки минуты и солнце*/
-    border: 2px solid white; /* границы более красивее */ 
+    border: 2px solid white; /* границы более красивее белые на кнопках */
+    cursor: pointer;
+    border-radius: 5px; /*радиус границы */
+    font-size: 20px;
+    transition: all 0.5s ease; /*переход всё по 0,5 секунды при наведении курсор будет реагировать */
+}
+
+/*наведение на кнопки курсивом  будет меняться цвет*/
+.time-select button:hover {
+    color: black;
+    background: white; /*изменить фон слабее */
+}
+
+/*для получения кнопки выбора звукка*/
+.sound-picker button {
+    border: none; /*избавились от границ */
+    height: 120px;
+    width: 120px;
+}
+
+
+
+/*кнопка выбора звука nth-child и я могу получить 1 кнопку и вторую кнопку */
+.sound-picker button :nth-child(1){
+background: #4972a1;
+
+}
+
+.sound-picker button:nth-child(2){
 
 }
