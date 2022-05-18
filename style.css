@@ -91,3 +91,7 @@ background: #4972a1;
 .sound-picker button:nth-child(2){
 background: #a14F49;
 }
+
+.sound-picker button img{
+    height: 100; /*где изобр тучи солнца  */
+}
