@@ -12,20 +12,54 @@
 }
 
 .time-select, /* выбрать время через запятую выбрать звук*/
-.sound-picker,
-.player-container {  /* контейнер игрока */
-height: 80%; /*  придаю высоту чтобы их видеть */
-flex: 1; /* чтобы были одниковой длины и ширины */
+.sound-picker
+.player-container {
+    height: 80%; /*  придаю высоту чтобы их видеть */
+    flex: 1; /* чтобы были одниковой длины и ширины */
+    display: flex; /* таким образом ставлю в ряд */
+    flex-direction: column; /* в виде столбца будут там где минуты */
+    justify-content: space-evenly; /* выравнять равномерно пространство содержимого*/
+    align-items: center; /*элементы строки по центру */
 }
 
-.time-select { /*время и задам фон*/
-background: rgb(107, 177, 200);
+.player-container {
+    /* контейнер игрока */
+    position: relative; /*указывает тип метода позиционирования, используемого для элемента (статический, относительный, фиксированный, абсолютный или фиксированный). */
 }
 
-.sound-picker { /* выбор звука задам ему фон */
-background: lightgreen;
+.player-container svg {
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*transformприменяет 2D- или 3D-преобразование к элементу. Это свойство позволяет вращать, масштабировать, перемещать, наклонять и т. д. элементы. */
 }
 
-.player-container{
-    background: lightcoral;
+
+
+.time-display{
+    position: absolute;
+    bottom: 10%; /*Свойство bottomвлияет на вертикальное положение позиционируемого элемента.  */
+    color: white;
+    font-size: 50%;
+
+}
+
+
+video {
+   position: fixed;
+   top: 0%;
+   left: 0%;
+   width: 100%;
+   z-index: -10; /* поместит или изображ или видео за всё остальное*/
+}
+
+.time-select button,
+.sound-picker button {
+    color: wheat;
+    width: 30%;
+    height: 10%;
+    background: none; /* убрала уродливый фон там где кнопки минуты и солнце*/
+    border: 2px solid white; /* границы более красивее */ 
+
 }
