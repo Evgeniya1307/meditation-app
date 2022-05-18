@@ -1,97 +1,99 @@
 * {
-    margin: 0; /* внешний отступ */
-    padding: 0; /*внутренний */
-    box-sizing: border-box; /*Применяется для изменения алгоритма расчёта ширины и высоты элемента.*/
-}
-
-.app {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .app {
     height: 100vh;
     display: flex;
-    justify-content: space-evenly; /* определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.*/
-    align-items: center; /* выравнивает flex-элементы текущей flex-линии таким же образом, как и justify-content, но в перпендикулярном направлении.*/
-}
-
-.time-select, /* выбрать время через запятую выбрать звук*/
-.sound-picker
-.player-container {
-    height: 80%; /*  придаю высоту чтобы их видеть */
-    flex: 1; /* чтобы были одниковой длины и ширины */
-    display: flex; /* таким образом ставлю в ряд */
-    flex-direction: column; /* в виде столбца будут там где минуты */
-    justify-content: space-evenly; /* выравнять равномерно пространство содержимого*/
-    align-items: center; /*элементы строки по центру */
-}
-
-.player-container {
-    /* контейнер игрока */
-    position: relative; /*указывает тип метода позиционирования, используемого для элемента (статический, относительный, фиксированный, абсолютный или фиксированный). */
-}
-
-.player-container svg {
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .time-select,
+  .sound-picker {
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+  }
+  .time-select button,
+  .sound-picker button {
+    color: white;
+    width: 30%;
+    height: 10%;
+    background: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: all 0.5s ease;
+  }
+  
+  .sound-picker button {
+    border: none;
+    height: 120px;
+    width: 120px;
+    padding: 30px;
+    border-radius: 50%;
+  }
+  .sound-picker button:nth-child(1) {
+    background: #4972a1;
+  }
+  .sound-picker button:nth-child(2) {
+    background: #a14f49;
+  }
+  .sound-picker button img {
+    height: 100%;
+  }
+  
+  .time-select button:hover {
+    background: white;
+    color: black;
+  }
+  
+  .player-container {
+    position: relative;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .player-container svg {
     position: absolute;
     height: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(
-        -50%,
-        -50%
-    ); /*transformприменяет 2D- или 3D-преобразование к элементу. Это свойство позволяет вращать, масштабировать, перемещать, наклонять и т. д. элементы. */
-}
-
-.time-display {
-    position: absolute;
-    bottom: 10%; /*Свойство bottomвлияет на вертикальное положение позиционируемого элемента.  */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    pointer-events: none;
+  }
+  .player-container svg circle {
+    transition: all 0.2s ease-in-out;
+  }
+  .time-display {
     color: white;
-    font-size: 50%;
-}
-
-video {
+    position: absolute;
+    font-size: 50px;
+    bottom: 10%;
+  }
+  
+  video {
     position: fixed;
     top: 0%;
     left: 0%;
     width: 100%;
-    z-index: -10; /* поместит или изображ или видео за всё остальное*/
-}
-
-.time-select button,
-.sound-picker button {
-    color: wheat;
-    width: 30%;
-    height: 10%;
-    background: none; /* убрала уродливый фон там где кнопки минуты и солнце*/
-    border: 2px solid white; /* границы более красивее белые на кнопках */
-    cursor: pointer;
-    border-radius: 5px; /*радиус границы */
-    font-size: 20px;
-    transition: all 0.5s ease; /*переход всё по 0,5 секунды при наведении курсор будет реагировать */
-}
-
-/*наведение на кнопки курсивом  будет меняться цвет*/
-.time-select button:hover {
-    color: black;
-    background: white; /*изменить фон слабее */
-}
-
-/*для получения кнопки выбора звукка*/
-.sound-picker button {
-    border: none; /*избавились от границ */
-    height: 120px;
-    width: 120px;
-    border-radius: 50%; /*там где кнопки тучи и солнца */
-}
+    z-index: -10;
+  }
 
 
 
-/*кнопка выбора звука nth-child и я могу получить 1 кнопку и вторую кнопку */
-.sound-picker button :nth-child(1){
-background: #4972a1;
 
-}
 
-.sound-picker button:nth-child(2){
-background: #a14F49;
-}
 
-.sound-picker button img{
-    height: 100; /*где изобр тучи солнца  */
-}
