@@ -20,7 +20,8 @@ let fakeDuration =600;
 
 // хочу анимировать кркуг  получить обводку смещения чтобы как бы  с 0 начало а потом снова полноэкранным
 outline.style.strokeDasharray = outlineLength;
-
+// как будто нет очертания  штрих с большим смещением с пустым небольшим местом 
+outline.style.strokeDashoffset = 200
 }
 
 app()//вызов
