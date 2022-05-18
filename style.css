@@ -77,6 +77,7 @@ video {
     border: none; /*избавились от границ */
     height: 120px;
     width: 120px;
+    border-radius: 50%; /*там где кнопки тучи и солнца */
 }
 
 
