@@ -20,8 +20,24 @@ let fakeDuration =600;
 
 // хочу анимировать кркуг  получить обводку смещения чтобы как бы  с 0 начало а потом снова полноэкранным
 outline.style.strokeDasharray = outlineLength;
-// как будто нет очертания  штрих с большим смещением с пустым небольшим местом 
-outline.style.strokeDashoffset = 200
+// как будто нет очертания  штрих с большим смещением с пустым небольшим местом если цифры ставить если = outlineLength то будет как нет его и играть нормально
+outline.style.strokeDashoffset = outlineLength
+
+// Добавлю звуки play sound
+// могу просто добавить значок и прослушиватель событий кликов 
+play.addEventListener('click', () => {
+    checkPlaying(song);// проверили воспроизведение и вставили эту песню 
+});
+
+// Create a function specific to stop and play the sounds функция специфичная для остановки и воспроизведения 
+// также поменять значки можем проверить приостановлена ли песня является положительно или нет песня поставлена на паузу 
+ const checkPlaying = song =>{
+     if(song.paused){
+         song.play();
+         video.play();
+         play.src = './svg/pause.svg';
+     }
+ }
 }
 
 app()//вызов
